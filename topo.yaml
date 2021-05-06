@@ -1,0 +1,31 @@
+# Darwin.jl settings
+seed: 0
+d_fitness: 1
+n_population: 15
+n_elite: 1
+n_gen: 100000  # number of generatations
+log_gen: 100  # how often to log
+save_gen: 0  # binary
+m_rate: 0.1  # (hidden) node mutation rate
+# CartesianGeneticProgramming.jl settings
+rows: 1
+columns: 500
+recur: 0.2  # ~probability of recurrency
+n_in: 100
+n_out: 76
+out_m_rate: 0.3  # output address mutation rate
+functions:
+  - f_add
+  - f_subtract
+  - f_mult
+  - f_div
+  - f_abs
+  - f_sqrt
+  - f_pow
+  - f_exp
+  # - f_sin
+  # - f_cos
+  - f_tanh
+  - f_sqrt_xy
+  - f_lt
+  - f_gt
