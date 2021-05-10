@@ -24,4 +24,5 @@ docs/site/
 Manifest.toml
 
 logs/*
+gens/*
 paths.json
