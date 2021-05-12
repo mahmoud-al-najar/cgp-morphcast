@@ -15,3 +15,6 @@ end
 function get_dataset_path()
     JSON.parsefile("paths.json")["dataset_path"]
 end
+
+has_inf(arr) = sum(isinf.(arr)) > 0
+has_nan(arr) = sum(isnan.(arr)) > 0
