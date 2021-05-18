@@ -24,8 +24,8 @@ months = []
 for i in 1:n_months
     topo_path = string(dataset_path, '/', i, "_topo.npy")
     topo = npzread(topo_path)
-    topo0 = norm_to_range(topo[1, :], -8.0, 8.0, -1, 1)
-    topo1 = norm_to_range(topo[2, :], -8.0, 8.0, -1, 1)
+    topo0 = norm_to_range(topo[1, :], -10.0, 10.0, -1, 1)
+    topo1 = norm_to_range(topo[2, :], -10.0, 10.0, -1, 1)
 
     waves_path = string(dataset_path, '/', i, "_waves.csv")
     waves_csv = CSV.read(waves_path, DataFrame)
