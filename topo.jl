@@ -35,19 +35,19 @@ for i in 1:n_months
     hs_month = norm_to_range(waves_csv.hs, 0, 10, -1, 1)
     direction_month = norm_to_range(waves_csv.direction, 0, 360, -1, 1)
 
-    tp_weeks = []
-    hs_weeks = []
-    direction_weeks = []
+    tp_days = []
+    hs_days = []
+    direction_days = []
 
     for i in range(0, stop=27)
         tp = tp_month[(i*8) + 1 : (i*8) + 8]
         hs = hs_month[(i*8) + 1 : (i*8) + 8]
         direction = direction_month[(i*8) + 1 : (i*8) + 8]
-        push!(tp_weeks, tp)
-        push!(hs_weeks, hs)
-        push!(direction_weeks, direction)
+        push!(tp_days, tp)
+        push!(hs_days, hs)
+        push!(direction_days, direction)
     end
-    month = Month(topo0, topo1, tp_weeks, hs_weeks, direction_weeks)
+    month = Month(topo0, topo1, tp_days, hs_days, direction_days)
     global months
     push!(months, month)
 end
