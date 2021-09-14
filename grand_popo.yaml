@@ -1,0 +1,36 @@
+# Darwin.jl settings
+seed: 0
+d_fitness: 1
+n_population: 100
+n_elite: 10
+n_gen: 100000  # number of generations
+log_gen: 100  # how often to log
+save_gen: 1000  # frequency
+m_rate: 0.3  # (hidden) node mutation rate
+# CartesianGeneticProgramming.jl settings
+id: "grand_popo_shorelinechange_wavesonly__mrate0.3_cols200_recur0.9_outmrate0.5_npop100_nelite10"
+rows: 1
+columns: 200
+recur: 0.9  # recurrent connection probability
+n_in: 12
+n_out: 1
+out_m_rate: 0.5  # output address mutation rate
+functions:
+  - f_add
+  - f_subtract
+  - f_mult
+  - f_div
+  - f_abs
+  - f_sqrt
+  - f_pow
+  - f_exp
+  - f_sin
+  - f_cos
+  - f_tanh
+  - f_sqrt_xy
+  - f_lt
+  - f_gt
+  # - f_avg
+  # - f_med
+  # - f_max
+  # - f_min
