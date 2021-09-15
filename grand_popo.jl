@@ -9,6 +9,7 @@ import Cambrian.mutate
 using Plots
 using Plots.PlotMeasures
 using StatsPlots
+include("utils.jl")
 
 
 function get_wave_t_in_range(param, min, max)
@@ -82,7 +83,7 @@ struct Day
     input_row
 end
 
-dir_path = "/media/mn/WD4TB/topo/grand_popo/"
+dir_path = get_dataset_path(;dataset_name="grand_popo")
 kalman_bathy_vars = matread(string(dir_path, "Kalman_bathy.mat"))
 bathy_xb = kalman_bathy_vars["xb"][1, :]# 1×213 Matrix{Float64}
 # bathy_tn = kalman_bathy_vars["tn"]      # 1×1214 Matrix{Float64}

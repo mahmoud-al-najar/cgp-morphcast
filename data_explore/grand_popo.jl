@@ -4,6 +4,7 @@ using GLPK
 using JuMP
 using Plots
 using Plots.PlotMeasures
+include("../utils.jl")
 
 
 function get_wave_t_in_range(param, min, max)
@@ -69,7 +70,7 @@ function find_x_at_zero(profile, xs, i)
     t0_x_at_zero
 end
 
-dir_path = "/media/mn/WD4TB/topo/grand_popo/"
+dir_path = get_dataset_path(;dataset_name="grand_popo")
 kalman_bathy_vars = matread(string(dir_path, "Kalman_bathy.mat"))
 bathy_xb = kalman_bathy_vars["xb"][1, :]# 1×213 Matrix{Float64}
 # bathy_tn = kalman_bathy_vars["tn"]      # 1×1214 Matrix{Float64}
@@ -120,12 +121,12 @@ for i in 2:length(bathy_dates)
 
 end
 
-# p1 = plot(bathy_dates[2:end], changes, ylabel="Shoreline change", legend=false)
-# p2 = plot(wave_dates, wave_Tm, ylabel="Tm", legend=false)
-# p3 = plot(wave_dates, wave_hs, ylabel="Hs", legend=false)
-# p4 = plot(wave_dates, wave_dir, ylabel="Dir", legend=false)
+p1 = plot(bathy_dates[2:end], changes, ylabel="Shoreline change", legend=false)
+p2 = plot(wave_dates, wave_Tm, ylabel="Tm", legend=false)
+p3 = plot(wave_dates, wave_hs, ylabel="Hs", legend=false)
+p4 = plot(wave_dates, wave_dir, ylabel="Dir", legend=false)
 
-# full_plot = plot(p1, p2, p3, p4, layout=(4, 1), legend=false)#, title="Grand Popo shoreline change")
-# plot!(size=(1920, 1080), left_margin=10mm) # 1920, 1080  # 1280, 720
-# savefig("/home/mn/JuliaProjects/old_cgp-morphcast/plots/grand_popo/wavesandshorelinechange.pdf")
+full_plot = plot(p1, p2, p3, p4, layout=(4, 1), legend=false)#, title="Grand Popo shoreline change")
+plot!(size=(1920, 1080), left_margin=10mm) # 1920, 1080  # 1280, 720
+savefig("/Users/mn/JuliaProjects/cgp-morphcast/output/grand_popo/wavesandshorelinechange.pdf")
 
